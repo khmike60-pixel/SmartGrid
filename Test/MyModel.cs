@@ -39,6 +39,63 @@ namespace Test
 
         public IEnumerable<MyModel> GetTreeData()
         {
+            int qtyLevel1 = 20;
+            int qtyLevel2 = 5;
+            int qtyLevel3 = 10;
+            var listNew = new List<MyModel>();
+            for (int i = 1; i <= qtyLevel1; i++)
+            {
+                int idLevel1 = i;
+                listNew.Add(new MyModel()
+                {
+                    Id = idLevel1,
+                    ParentId = 0,
+                    IsLeaf = 0,
+                    Name = "Узел_" + i,
+                    Number = i * 1000,
+                    Decimal = i * 1000.0000M,
+                    Double = i * 1000.00M,
+                    String1 = "Тест_" + i,
+                    String2 = "Test_" + i,
+                    Date = DateTime.Now.AddDays(i)
+                });
+                for (int j = 1; j <= qtyLevel2; j++)
+                {
+                    int idLevel2 = idLevel1 * 100 + j;
+                    listNew.Add(new MyModel()
+                    {
+                        Id = idLevel2,
+                        ParentId = idLevel1,
+                        IsLeaf = 0,
+                        Name = "Потомок_" + i + "_" + j,
+                        Number = j * 2000,
+                        Decimal = j * 2000.0000M,
+                        Double = j * 2000.00M,
+                        String1 = "Тест_" + j,
+                        String2 = "Test_" + j,
+                        Date = DateTime.Now.AddDays(j)
+                    });
+                    for (int k = 1; k <= qtyLevel3; k++)
+                    {
+                        int idLevel3 = idLevel2 * 100 + k;
+                        listNew.Add(new MyModel()
+                        {
+                            Id = idLevel3,
+                            ParentId = idLevel2,
+                            IsLeaf = 1,
+                            Name = "Лист_" + i + "_" + j + "_" + k,
+                            Number = k * 3000,
+                            Decimal = k * 3000.0000M,
+                            Double = k * 3000.00M,
+                            String1 = "Тест_" + k,
+                            String2 = "Test_" + k,
+                            Date = DateTime.Now.AddDays(k)
+                        });
+                    }
+                }
+            }
+            return listNew.AsEnumerable().Select(m => m);
+            /*
             var list = new List<MyModel>()
             {
                 new MyModel() { Id = 1, ParentId = 0, IsLeaf = 0, Name = "Узел1", Number = 1000, Decimal = 1000.0000M, Double = 1000.00M, String1 = "Тест1", String2 = "Test2", Date = DateTime.Now.AddDays(1) },
@@ -50,7 +107,7 @@ namespace Test
             };
 
             return list.AsEnumerable().Select(m => m);
-
+            */
         }
     }
 }

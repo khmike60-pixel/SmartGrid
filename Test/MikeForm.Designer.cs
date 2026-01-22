@@ -30,12 +30,14 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MikeForm));
-            C1.Win.FlexGrid.FooterDescription footerDescription1 = new C1.Win.FlexGrid.FooterDescription();
-            C1.Win.FlexGrid.AggregateDefinition aggregateDefinition1 = new C1.Win.FlexGrid.AggregateDefinition();
-            C1.Win.FlexGrid.AggregateDefinition aggregateDefinition2 = new C1.Win.FlexGrid.AggregateDefinition();
-            C1.Win.FlexGrid.AggregateDefinition aggregateDefinition3 = new C1.Win.FlexGrid.AggregateDefinition();
+            C1.Win.FlexGrid.FooterDescription footerDescription2 = new C1.Win.FlexGrid.FooterDescription();
+            C1.Win.FlexGrid.AggregateDefinition aggregateDefinition4 = new C1.Win.FlexGrid.AggregateDefinition();
+            C1.Win.FlexGrid.AggregateDefinition aggregateDefinition5 = new C1.Win.FlexGrid.AggregateDefinition();
+            C1.Win.FlexGrid.AggregateDefinition aggregateDefinition6 = new C1.Win.FlexGrid.AggregateDefinition();
             smartGrid1 = new SmartGrid.SmartGrid();
+            flex = new C1.Win.FlexGrid.C1FlexGrid();
             ((System.ComponentModel.ISupportInitialize)smartGrid1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)flex).BeginInit();
             SuspendLayout();
             // 
             // smartGrid1
@@ -46,16 +48,16 @@
             smartGrid1.AutoGenerateColumns = false;
             smartGrid1.ColumnInfo = resources.GetString("smartGrid1.ColumnInfo");
             smartGrid1.DrawMode = C1.Win.FlexGrid.DrawModeEnum.OwnerDraw;
-            aggregateDefinition1.Aggregate = C1.Win.FlexGrid.AggregateEnum.Sum;
-            aggregateDefinition1.Column = 4;
-            aggregateDefinition2.Aggregate = C1.Win.FlexGrid.AggregateEnum.Sum;
-            aggregateDefinition2.Column = 5;
-            aggregateDefinition3.Aggregate = C1.Win.FlexGrid.AggregateEnum.Sum;
-            aggregateDefinition3.Column = 6;
-            footerDescription1.Aggregates.Add(aggregateDefinition1);
-            footerDescription1.Aggregates.Add(aggregateDefinition2);
-            footerDescription1.Aggregates.Add(aggregateDefinition3);
-            smartGrid1.Footers.Descriptions.Add(footerDescription1);
+            aggregateDefinition4.Aggregate = C1.Win.FlexGrid.AggregateEnum.Sum;
+            aggregateDefinition4.Column = 4;
+            aggregateDefinition5.Aggregate = C1.Win.FlexGrid.AggregateEnum.Sum;
+            aggregateDefinition5.Column = 5;
+            aggregateDefinition6.Aggregate = C1.Win.FlexGrid.AggregateEnum.Sum;
+            aggregateDefinition6.Column = 6;
+            footerDescription2.Aggregates.Add(aggregateDefinition4);
+            footerDescription2.Aggregates.Add(aggregateDefinition5);
+            footerDescription2.Aggregates.Add(aggregateDefinition6);
+            smartGrid1.Footers.Descriptions.Add(footerDescription2);
             smartGrid1.Footers.Fixed = true;
             smartGrid1.Headers = new string[]
     {
@@ -65,33 +67,44 @@
     };
             smartGrid1.IdName = null;
             smartGrid1.IsEditing = false;
-            smartGrid1.Location = new Point(12, 84);
+            smartGrid1.Location = new Point(12, 12);
             smartGrid1.Name = "smartGrid1";
-            smartGrid1.Rows.Count = 15;
+            smartGrid1.Rows.Count = 16;
             smartGrid1.Rows.Fixed = 3;
             smartGrid1.SelectedRows = (List<int>)resources.GetObject("smartGrid1.SelectedRows");
             smartGrid1.SelectionMode = C1.Win.FlexGrid.SelectionModeEnum.Row;
-            smartGrid1.Size = new Size(776, 354);
+            smartGrid1.Size = new Size(895, 137);
             smartGrid1.SortingType = SmartGrid.SortingType.Descending;
             smartGrid1.StyleInfo = resources.GetString("smartGrid1.StyleInfo");
             smartGrid1.TabIndex = 0;
             smartGrid1.RowColChange += smartGrid1_RowColChange;
             // 
+            // flex
+            // 
+            flex.ColumnInfo = "10,1,0,0,0,-1,Columns:";
+            flex.Location = new Point(12, 169);
+            flex.Name = "flex";
+            flex.Size = new Size(895, 269);
+            flex.TabIndex = 1;
+            // 
             // MikeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(919, 450);
+            Controls.Add(flex);
             Controls.Add(smartGrid1);
             Name = "MikeForm";
             Text = "MikeForm";
             Load += MikeForm_Load;
             ((System.ComponentModel.ISupportInitialize)smartGrid1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)flex).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private SmartGrid.SmartGrid smartGrid1;
+        private C1.Win.FlexGrid.C1FlexGrid flex;
     }
 }

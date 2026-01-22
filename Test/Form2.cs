@@ -18,58 +18,29 @@ namespace Test
         public Form2()
         {
             InitializeComponent();
-
-            RefreshTree();
-            Refresh();
-
-            Grid.RemoveDefaultContextMenuItems(true, true, true);
-            //Grid.AddItemToContextMenu("новый пункт", Resources.CopyDataFromTo_GI, null);
         }
 
         private void RefreshTree()
         {
+            Grid3.BeginUpdate();
+
             var model = new MyModel();
             var data = model.GetTreeData();
             LoadTreeData(data);
-        }
 
-        private void Refresh()
-        {
-            var model = new MyModel();
-            var data = new C1DataCollection<MyModel>(model.GetData());
-            LoadData(data);
+            Grid3.EndUpdate();
+
         }
 
         private void LoadTreeData(IEnumerable<MyModel> data)
         {
-            Grid.BuildTree(data);
-
-            Grid.Rows[4].IsNode = false;
-            Grid.Rows[5].IsNode = false;
-
             Grid3.BuildTree(data);
-
-        }
-
-        private void LoadData(C1DataCollection<MyModel> data)
-        {
-            Grid2.BeginUpdate();
-            Grid2.DataSource = new C1DataCollectionBindingList(data);
-            Grid2.EndUpdate();
-        }
-
-        private void Grid_BeforeFilter(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
-
-        private void Grid_AfterFilter(object sender, EventArgs e)
-        {
 
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            RefreshTree();
 
         }
 
@@ -91,6 +62,15 @@ namespace Test
             }
 
             return true;
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            //Grid3.BeginUpdate();
+
+            RefreshTree();
+
+            //Grid3.EndUpdate();
         }
     }
 }
