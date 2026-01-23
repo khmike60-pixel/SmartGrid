@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             C1.Win.FlexGrid.FooterDescription footerDescription1 = new C1.Win.FlexGrid.FooterDescription();
-            C1.Win.FlexGrid.AggregateDefinition aggregateDefinition1 = new C1.Win.FlexGrid.AggregateDefinition();
             c1SuperTooltip1 = new C1.Win.SuperTooltip.C1SuperTooltip(components);
             Grid3 = new SmartGrid.SmartGrid();
             buttonRefresh = new Button();
@@ -50,10 +49,6 @@
             Grid3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Grid3.ColumnInfo = resources.GetString("Grid3.ColumnInfo");
             Grid3.DrawMode = C1.Win.FlexGrid.DrawModeEnum.OwnerDraw;
-            aggregateDefinition1.Aggregate = C1.Win.FlexGrid.AggregateEnum.Count;
-            aggregateDefinition1.Caption = "Всего: ";
-            aggregateDefinition1.Column = 2;
-            footerDescription1.Aggregates.Add(aggregateDefinition1);
             Grid3.Footers.Descriptions.Add(footerDescription1);
             Grid3.Footers.Fixed = true;
             Grid3.Headers = new string[]
@@ -66,7 +61,7 @@
             Grid3.Location = new Point(14, 12);
             Grid3.Margin = new Padding(4, 3, 4, 3);
             Grid3.Name = "Grid3";
-            Grid3.Rows.Count = 11;
+            Grid3.Rows.Count = 12;
             Grid3.Rows.Fixed = 2;
             Grid3.SelectedRows = null;
             Grid3.SelectionMode = C1.Win.FlexGrid.SelectionModeEnum.Row;

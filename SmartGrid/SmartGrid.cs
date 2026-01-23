@@ -1347,23 +1347,16 @@ namespace SmartGrid
 
 
             Rows.Count = Rows.Fixed; // Пропускаем строки заголовков
-            if (Footers.Descriptions.Count > 0 && Rows.Count == Rows.Fixed) Rows.Count += Footers.Descriptions.Count;
 
             Rows.Add();
-            //Rows[Rows.Count - 1].IsNode = true;
-            Rows[Rows.Count - Footers.Descriptions.Count - 1].IsNode = true;
-            //Rows[Rows.Count - Footers.Descriptions.Count - Rows.Fixed].IsNode = true;
+            Rows[Rows.Fixed].IsNode = true;
 
-            //SetModelToNode(Rows[Rows.Count - 1].Node, root);
-            SetModelToNode(Rows[Rows.Count - Footers.Descriptions.Count - 1].Node, root);
-            //SetModelToNode(Rows[Rows.Count - Footers.Descriptions.Count - Rows.Fixed].Node, root);
+            SetModelToNode(Rows[Rows.Count - 1].Node, root);
 
             source = source.OrderBy(m => m.ParentId).ToList();
 
             var rootChildren = source.Where(m => m.ParentId == 0);
-            //AddChildsToNode(Rows[Rows.Count - 1].Node, rootChildren, source);
-            AddChildsToNode(Rows[Rows.Count - Footers.Descriptions.Count - 1].Node, rootChildren, source);
-            //AddChildsToNode(Rows[Rows.Count - Footers.Descriptions.Count - Rows.Fixed].Node, rootChildren, source);
+            AddChildsToNode(Rows[Rows.Count - 1].Node, rootChildren, source);
         }
 
         /// <summary>
