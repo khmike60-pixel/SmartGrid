@@ -19,23 +19,19 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>False</Optimize>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="C1.Excel" Version="5.0.20231.18" />
-    <PackageReference Include="C1.Win" Version="6.0.20231.596" />
-    <PackageReference Include="C1.Win.Command" Version="6.0.20231.596" />
-    <PackageReference Include="C1.Win.FlexGrid" Version="6.0.20231.596" />
-    <PackageReference Include="C1.Win.FlexGrid.ImportExport" Version="6.0.20231.596" />
-    <PackageReference Include="C1.Win.Input" Version="6.0.20231.596" />
-    <PackageReference Include="C1.Win.SuperTooltip" Version="6.0.20231.596" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="C1.Win.6">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\MESCIUS\ComponentOne\WinForms\bin\v6\c1.win\6.0.20231.596\lib\net6.0\C1.Win.6.dll</HintPath>
-    </Reference>
+    <PackageReference Include="C1.Win" Version="8.0.20251.708" />
+    <PackageReference Include="C1.Win.Command" Version="8.0.20251.708" />
+    <PackageReference Include="C1.Win.FlexGrid" Version="8.0.20251.708" />
+    <PackageReference Include="C1.Win.FlexGrid.ImportExport" Version="8.0.20251.708" />
+    <PackageReference Include="C1.Win.Input" Version="8.0.20251.708" />
+    <PackageReference Include="C1.Win.SuperTooltip" Version="8.0.20251.708" />
   </ItemGroup>
 
   <ItemGroup>

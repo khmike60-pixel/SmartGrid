@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing.Design;
 using System.Linq;
 using System.Reflection;
@@ -74,6 +75,7 @@ namespace SmartGrid
 
             _dragToolTip = new ToolTip();
             _dragToolTip.ShowAlways = true;
+             
         }
 
 
@@ -101,10 +103,12 @@ namespace SmartGrid
         /// </summary>
         [Category("Micros")]
         [Description("Helps to add merged multirow headers")]
-        [Editor(typeof(HeadersUIEditor), typeof(UITypeEditor))]
+        [Editor(typeof(HeadersCollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public string[] Headers
         {
-            get { return _headers; }
+            get { 
+                return _headers; 
+            }
             set
             {
                 _headers = value;
@@ -167,12 +171,16 @@ namespace SmartGrid
 
         private void SmartGrid_GridChanged(object sender, GridChangedEventArgs e)
         {
+
+            OnChangeHeaders();
+
             //Если в штатном Дизайнере добавлен столбец, 
             //переписываем Headers.
             if (e.GridChangedType == GridChangedTypeEnum.ColAdded)
             {
                 if (Headers != null)
                 {
+                    //OnChangeHeaders();
                     RewriteHeaders();
                 }
             }
@@ -183,6 +191,7 @@ namespace SmartGrid
             {
                 if (Headers != null)
                 {
+                    //OnChangeHeaders();
                     RewriteHeaders();
                 }
             }
@@ -193,6 +202,7 @@ namespace SmartGrid
             {
                 if (Headers != null)
                 {
+                    //OnChangeHeaders();
                     RewriteHeaders();
                 }
             }
@@ -210,6 +220,17 @@ namespace SmartGrid
                             this[i, j] = "";
                         }
                     }
+                }
+            }
+
+            //Если изменен стиль, 
+            //переписываем Headers.
+            if (e.GridChangedType == GridChangedTypeEnum.StyleChanged)
+            {
+                if (Headers != null)
+                {
+                    //OnChangeHeaders();
+                    RewriteHeaders();
                 }
             }
         }

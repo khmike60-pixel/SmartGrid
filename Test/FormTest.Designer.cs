@@ -1,6 +1,6 @@
 ﻿namespace Test
 {
-    partial class Form2
+    partial class FormTest
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,18 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTest));
             C1.Win.FlexGrid.FooterDescription footerDescription1 = new C1.Win.FlexGrid.FooterDescription();
             c1SuperTooltip1 = new C1.Win.SuperTooltip.C1SuperTooltip(components);
             Grid3 = new SmartGrid.SmartGrid();
             buttonRefresh = new Button();
+            c1SplitContainer1 = new C1.Win.SplitContainer.C1SplitContainer();
+            c1SplitterPanel1 = new C1.Win.SplitContainer.C1SplitterPanel();
+            c1SplitterPanel2 = new C1.Win.SplitContainer.C1SplitterPanel();
             ((System.ComponentModel.ISupportInitialize)Grid3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)c1SplitContainer1).BeginInit();
+            c1SplitContainer1.SuspendLayout();
+            c1SplitterPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // c1SuperTooltip1
@@ -46,26 +52,26 @@
             // 
             Grid3.AllowMergingFixed = C1.Win.FlexGrid.AllowMergingEnum.FixedOnly;
             Grid3.AllowNodeMove = true;
-            Grid3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Grid3.ColumnInfo = resources.GetString("Grid3.ColumnInfo");
+            Grid3.Dock = DockStyle.Fill;
             Grid3.DrawMode = C1.Win.FlexGrid.DrawModeEnum.OwnerDraw;
             Grid3.Footers.Descriptions.Add(footerDescription1);
             Grid3.Footers.Fixed = true;
             Grid3.Headers = new string[]
     {
-    "0\t1\t2\t3\t4\t5\t6\t7\t8\t9",
-    "0\t1\t2\t3\t4\t5\t6\t7\t8\t9"
+    "№\tИерархия\tИерархия\tИерархия\tДоп.поля\tДоп.поля\tДоп.поля\tДоп.поля\tИтого\tИтого",
+    "№\t11\t22\t3\t4\t5\t6\t7\t8\t9"
     };
             Grid3.IdName = null;
             Grid3.IsEditing = false;
-            Grid3.Location = new Point(14, 12);
+            Grid3.Location = new Point(0, 0);
             Grid3.Margin = new Padding(4, 3, 4, 3);
             Grid3.Name = "Grid3";
-            Grid3.Rows.Count = 12;
+            Grid3.Rows.Count = 15;
             Grid3.Rows.Fixed = 2;
             Grid3.SelectedRows = null;
             Grid3.SelectionMode = C1.Win.FlexGrid.SelectionModeEnum.Row;
-            Grid3.Size = new Size(844, 426);
+            Grid3.Size = new Size(1026, 190);
             Grid3.SortingType = SmartGrid.SortingType.Descending;
             Grid3.StyleInfo = resources.GetString("Grid3.StyleInfo");
             Grid3.TabIndex = 2;
@@ -75,7 +81,7 @@
             // buttonRefresh
             // 
             buttonRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonRefresh.Location = new Point(783, 444);
+            buttonRefresh.Location = new Point(963, 444);
             buttonRefresh.Name = "buttonRefresh";
             buttonRefresh.Size = new Size(75, 23);
             buttonRefresh.TabIndex = 3;
@@ -83,18 +89,53 @@
             buttonRefresh.UseVisualStyleBackColor = true;
             buttonRefresh.Click += buttonRefresh_Click;
             // 
-            // Form2
+            // c1SplitContainer1
+            // 
+            c1SplitContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            c1SplitContainer1.AutoSizeElement = C1.Framework.AutoSizeElement.Both;
+            c1SplitContainer1.HeaderButtonBackColor = Color.Transparent;
+            c1SplitContainer1.Location = new Point(12, 12);
+            c1SplitContainer1.Name = "c1SplitContainer1";
+            c1SplitContainer1.Panels.Add(c1SplitterPanel1);
+            c1SplitContainer1.Panels.Add(c1SplitterPanel2);
+            c1SplitContainer1.Size = new Size(1026, 426);
+            c1SplitContainer1.TabIndex = 4;
+            // 
+            // c1SplitterPanel1
+            // 
+            c1SplitterPanel1.Controls.Add(Grid3);
+            c1SplitterPanel1.Height = 211;
+            c1SplitterPanel1.Location = new Point(0, 21);
+            c1SplitterPanel1.Name = "c1SplitterPanel1";
+            c1SplitterPanel1.Size = new Size(1026, 190);
+            c1SplitterPanel1.TabIndex = 0;
+            c1SplitterPanel1.Text = "Panel 1";
+            // 
+            // c1SplitterPanel2
+            // 
+            c1SplitterPanel2.Collapsible = true;
+            c1SplitterPanel2.Height = 211;
+            c1SplitterPanel2.Location = new Point(0, 236);
+            c1SplitterPanel2.Name = "c1SplitterPanel2";
+            c1SplitterPanel2.Size = new Size(1026, 190);
+            c1SplitterPanel2.TabIndex = 1;
+            c1SplitterPanel2.Text = "Panel 2";
+            // 
+            // FormTest
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(870, 479);
+            ClientSize = new Size(1050, 479);
+            Controls.Add(c1SplitContainer1);
             Controls.Add(buttonRefresh);
-            Controls.Add(Grid3);
             Margin = new Padding(4, 3, 4, 3);
-            Name = "Form2";
+            Name = "FormTest";
             Text = "Form2";
             Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)Grid3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)c1SplitContainer1).EndInit();
+            c1SplitContainer1.ResumeLayout(false);
+            c1SplitterPanel1.ResumeLayout(false);
             ResumeLayout(false);
 
         }
@@ -103,5 +144,8 @@
         private C1.Win.SuperTooltip.C1SuperTooltip c1SuperTooltip1;
         private SmartGrid.SmartGrid Grid3;
         private Button buttonRefresh;
+        private C1.Win.SplitContainer.C1SplitContainer c1SplitContainer1;
+        private C1.Win.SplitContainer.C1SplitterPanel c1SplitterPanel1;
+        private C1.Win.SplitContainer.C1SplitterPanel c1SplitterPanel2;
     }
 }

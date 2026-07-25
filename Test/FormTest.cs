@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace Test
 {
-    public partial class Form2 : Form
+    public partial class FormTest : Form
     {
-        public Form2()
+        public FormTest()
         {
             InitializeComponent();
         }
@@ -40,6 +40,19 @@ namespace Test
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            var pd = TypeDescriptor.GetProperties(this.Grid3)["Headers"];
+            System.Diagnostics.Debug.WriteLine("PropertyDescriptor: " + (pd != null ? pd.Name : "<null>"));
+
+            var edObj = pd?.GetEditor(typeof(System.Drawing.Design.UITypeEditor));
+            var ed = edObj as System.Drawing.Design.UITypeEditor;
+            System.Diagnostics.Debug.WriteLine("Editor instance: " + (ed != null ? ed.GetType().FullName : "<null>"));
+
+            if (ed != null)
+            {
+                var style = ed.GetEditStyle(null);
+                System.Diagnostics.Debug.WriteLine("GetEditStyle: " + style.ToString());
+            }
+
             RefreshTree();
 
         }
@@ -66,11 +79,11 @@ namespace Test
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            //Grid3.BeginUpdate();
+            Grid3.BeginUpdate();
 
             RefreshTree();
-
-            //Grid3.EndUpdate();
+            
+            Grid3.EndUpdate();
         }
     }
 }
