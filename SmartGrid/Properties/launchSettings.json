@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SmartGrid": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

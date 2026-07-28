@@ -2,7 +2,7 @@ using C1.DataCollection;
 using C1.DataCollection.BindingList;
 using C1.Win.FlexGrid;
 using C1.Win.Input;
-using GrapeCity.DataVisualization.Chart;
+//using GrapeCity.DataVisualization.Chart;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

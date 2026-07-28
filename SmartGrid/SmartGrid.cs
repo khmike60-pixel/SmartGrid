@@ -24,6 +24,17 @@ namespace SmartGrid
         {
             //var launch = System.Diagnostics.Debugger.Launch();
             InitializeComponent();
+
+            // В конструкторе оставляем минимальную инициализацию, необходимую для дизайнера,
+            // а "тяжёлые" операции выполняем только в runtime.
+            if (IsDesignMode())
+            {
+                // В режиме дизайнера можно установить лишь безопасные визуальные параметры (по необходимости),
+                // но НЕ подписываться на сложные события и не вызывать runtime-логики.
+                this.Cols[0].Width = 30;
+                return;
+            }
+
             this.Cols[0].Width = 30;
             this.Rows.Count = 10;
             this.Cols.Count = 10;
@@ -76,6 +87,10 @@ namespace SmartGrid
             _dragToolTip.ShowAlways = true;
         }
 
+        private bool IsDesignMode()
+        {
+            return (LicenseManager.UsageMode == LicenseUsageMode.Designtime) || (this.Site?.DesignMode == true);
+        }
 
         //Вспомогательные свойства и методы для интеграции с Bookkeep и другими приложениями, а также корректного поведения различных функций
         // А.Кузнецов 23.01.2024
@@ -104,7 +119,9 @@ namespace SmartGrid
         [Editor(typeof(HeadersUIEditor), typeof(UITypeEditor))]
         public string[] Headers
         {
-            get { return _headers; }
+            get { 
+                return _headers; 
+            }
             set
             {
                 _headers = value;
@@ -167,6 +184,8 @@ namespace SmartGrid
 
         private void SmartGrid_GridChanged(object sender, GridChangedEventArgs e)
         {
+            OnChangeHeaders();
+
             //Если в штатном Дизайнере добавлен столбец, 
             //переписываем Headers.
             if (e.GridChangedType == GridChangedTypeEnum.ColAdded)
@@ -212,6 +231,7 @@ namespace SmartGrid
                     }
                 }
             }
+
         }
 
         private void RewriteHeaders()
