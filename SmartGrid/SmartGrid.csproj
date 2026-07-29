@@ -9,7 +9,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>SmartGrid</Title>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <Version>8.0.0.2</Version>
+    <Version>8.0.0.3</Version>
     <Description>Компонент SmartGrid, порожденный от C1FlexGrid, поддерживающий многоуровневые заголовки.
 Компилирован под .Net 8.</Description>
   </PropertyGroup>
