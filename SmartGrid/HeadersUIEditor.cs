@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing.Design;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,11 @@ namespace SmartGrid
     public class HeadersUIEditor : UITypeEditor
     {
         private IWindowsFormsEditorService edSvc = null;
+
+        public HeadersUIEditor()
+        {
+            Debug.WriteLine("HeadersUIEditor ctor");
+        }
 
         // Стиль редактора — модальный диалог
         public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)

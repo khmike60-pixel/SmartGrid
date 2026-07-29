@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing.Design;
 using System.Linq;
 using System.Reflection;
@@ -85,6 +86,7 @@ namespace SmartGrid
 
             _dragToolTip = new ToolTip();
             _dragToolTip.ShowAlways = true;
+             
         }
 
         private bool IsDesignMode()
@@ -116,7 +118,7 @@ namespace SmartGrid
         /// </summary>
         [Category("Micros")]
         [Description("Helps to add merged multirow headers")]
-        [Editor(typeof(HeadersUIEditor), typeof(UITypeEditor))]
+        [Editor(typeof(HeadersCollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
         public string[] Headers
         {
             get { 
@@ -192,6 +194,7 @@ namespace SmartGrid
             {
                 if (Headers != null)
                 {
+                    //OnChangeHeaders();
                     RewriteHeaders();
                 }
             }
@@ -202,6 +205,7 @@ namespace SmartGrid
             {
                 if (Headers != null)
                 {
+                    //OnChangeHeaders();
                     RewriteHeaders();
                 }
             }
@@ -212,6 +216,7 @@ namespace SmartGrid
             {
                 if (Headers != null)
                 {
+                    //OnChangeHeaders();
                     RewriteHeaders();
                 }
             }
@@ -229,6 +234,17 @@ namespace SmartGrid
                             this[i, j] = "";
                         }
                     }
+                }
+            }
+
+            //Если изменен стиль, 
+            //переписываем Headers.
+            if (e.GridChangedType == GridChangedTypeEnum.StyleChanged)
+            {
+                if (Headers != null)
+                {
+                    //OnChangeHeaders();
+                    RewriteHeaders();
                 }
             }
 

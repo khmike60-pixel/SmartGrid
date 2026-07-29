@@ -1,6 +1,6 @@
 ﻿namespace Test
 {
-    partial class Form2
+    partial class FormTest
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTest));
             C1.Win.FlexGrid.FooterDescription footerDescription1 = new C1.Win.FlexGrid.FooterDescription();
             C1.Win.FlexGrid.AggregateDefinition aggregateDefinition1 = new C1.Win.FlexGrid.AggregateDefinition();
             C1.Win.FlexGrid.FooterDescription footerDescription2 = new C1.Win.FlexGrid.FooterDescription();
@@ -62,6 +62,7 @@
             Grid3.AllowNodeMove = true;
             Grid3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Grid3.ColumnInfo = resources.GetString("Grid3.ColumnInfo");
+            Grid3.Dock = DockStyle.Fill;
             Grid3.DrawMode = C1.Win.FlexGrid.DrawModeEnum.OwnerDraw;
             aggregateDefinition1.Aggregate = C1.Win.FlexGrid.AggregateEnum.Count;
             aggregateDefinition1.Caption = "Всего: ";
@@ -172,6 +173,8 @@
             // 
             // Form2
             // 
+            // FormTest
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(786, 469);
@@ -179,7 +182,7 @@
             Controls.Add(c1SplitContainer1);
             Controls.Add(buttonRefresh);
             Margin = new Padding(4, 3, 4, 3);
-            Name = "Form2";
+            Name = "FormTest";
             Text = "Form2";
             Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)Grid3).EndInit();
